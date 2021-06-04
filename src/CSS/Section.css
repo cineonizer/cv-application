@@ -1,5 +1,21 @@
-.Section {
-  height: 500px;
-  border: 1px solid black;
-  margin: 20px;
+.section {
+  max-width: 75%;
+  width: 750px;
+  height: fit-content;
+  border: 1px solid transparent;
+  background-color: #d1d2d4;
+  box-shadow: 50px red;
+  border-radius: 20px;
+  margin-top: 50px;
+}
+
+.section-title {
+  margin: 50px 0 40px 50px;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

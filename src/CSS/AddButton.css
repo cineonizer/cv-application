@@ -1,0 +1,50 @@
+/* .add-button {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  color: black;
+  background-color: #d1d2d4;
+  margin-bottom: 40px;
+} */
+
+.add-button {
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 35px;
+  color: #333;
+  position: relative;
+  transition: all .35s;
+  background-color: #d1d2d4;
+  margin-bottom: 40px;
+  border: 2px solid #adadad;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+.add-button span{
+  position: relative;
+  z-index: 2;
+}
+
+.add-button:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: dodgerblue;
+  transition: width 0.5s;
+}
+
+.add-button:hover {
+  color: #fff;
+}
+
+.add-button:hover:after {
+  width: 100%;
+}

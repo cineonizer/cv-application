@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Section from './components/Section';
-import './CSS/App.css'
+import './css/App.css'
 
 class App extends Component {
   render() {
     return(
-      <div className="App">
-        <Section />
+      <div className="app">
+        <Section sectionTitle="Personal Information"/>
       </div>
     );
   }
