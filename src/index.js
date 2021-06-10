@@ -6,8 +6,8 @@ import './css/index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Nav />
-    <App />
+    <Nav/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

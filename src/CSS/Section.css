@@ -1,6 +1,5 @@
 .section {
-  max-width: 75%;
-  width: 750px;
+  width: 550px;
   height: fit-content;
   border: 1px solid transparent;
   background-color: #d1d2d4;
@@ -10,10 +9,12 @@
 }
 
 .section-title {
+  font-weight: bold;
+  font-size: 1.5em;
   margin: 50px 0 40px 50px;
 }
 
-.section-container {
+.all-section-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;

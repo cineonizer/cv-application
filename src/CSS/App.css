@@ -1,7 +1,7 @@
 .app {
   background-color: #F6F7FA;
-  height: 600px;
+  height: 900px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }

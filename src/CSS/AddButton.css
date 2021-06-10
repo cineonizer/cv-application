@@ -1,12 +1,3 @@
-/* .add-button {
-  width: 100%;
-  height: 30px;
-  outline: none;
-  color: black;
-  background-color: #d1d2d4;
-  margin-bottom: 40px;
-} */
-
 .add-button {
   display: block;
   width: 150px;
@@ -21,16 +12,12 @@
   border-radius: 5px;
   letter-spacing: 1px;
   overflow: hidden;
-}
-
-.add-button span{
-  position: relative;
-  z-index: 2;
+  cursor: pointer;
 }
 
 .add-button:after {
   position: absolute;
-  content: "";
+  content: "+";
   top: 0;
   left: 0;
   width: 0;
@@ -38,13 +25,11 @@
   border: none;
   outline: none;
   background: dodgerblue;
-  transition: width 0.5s;
-}
-
-.add-button:hover {
-  color: #fff;
+  color: transparent;
+  transition: width 0.5s, color 0.5s;
 }
 
 .add-button:hover:after {
   width: 100%;
+  color: #fff;
 }
