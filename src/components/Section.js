@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import TextInput from './TextInput';
-import SocialMediaInput from './SocialMediaInput';
-import AddButton from './AddButton';
 import '../css/Section.css';
 
 class Section extends Component {
 
-  AddSocialMediaInput = (props) => {
-    const socialMediaLength = props;
-    if (socialMediaLength) {
-      return <SocialMediaInput />;
-    }
-    return '';
-  };
+  // AddSocialMediaInput = (props) => {
+  //   const socialMediaLength = props;
+  //   if (socialMediaLength) {
+  //     return <SocialMediaInput />;
+  //   }
+  //   return '';
+  // };
 
   render() {
-    const { name, handleInputChange, handleButtonClick, socialMediaLength } = this.props;
+    const { name, handleInputChange } = this.props;
 
     return (
       <div className="section">
@@ -34,15 +32,22 @@ class Section extends Component {
             handleInputChange={(e) => handleInputChange(e, "location")}
           />
           <TextInput
-            name="Phone Number"
+            name="Phone"
             handleInputChange={(e) => handleInputChange(e, "phone")}
           />
           <TextInput
             name="Email"
             handleInputChange={(e) => handleInputChange(e, "email")}
           />
-          <AddButton addSocialMediaState={handleButtonClick} />
-          {this.AddSocialMediaInput(socialMediaLength)}
+          {/* {this.AddSocialMediaInput(socialMediaLength)} */}
+          <TextInput
+            name="GitHub Username"
+            handleInputChange={(e) => handleInputChange(e, "gitHub")}
+          />
+          <TextInput
+            name="LinkedIn Username"
+            handleInputChange={(e) => handleInputChange(e, "linkedIn")}
+          />
         </div>
       </div>
     );

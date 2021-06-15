@@ -10,29 +10,29 @@ class App extends Component {
     this.state = {
       firstName: 'Elliot',
       lastName: 'Alderson',
+      location: 'New York, NY',
       phone: '212-555-0179',
       email: 'elliotalderson@protonmail.ch',
-      location: 'New York, NY',
-      socialMedia: [],
+      gitHub: 'cineonizer',
+      linkedIn: 'jamesdkiam',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    // this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
   handleInputChange = async (e, field) => {
     await this.setState({
       [field]: e.target.value,
     });
-    console.log(this.state)
   };
 
-  handleButtonClick = async () => {
-    await this.setState({
-      socialMedia: this.state.socialMedia.concat(''),
-    });
-    console.log(this.state.socialMedia)
-  };
+  // handleButtonClick = async () => {
+  //   await this.setState({
+  //     socialMedia: this.state.socialMedia.concat(''),
+  //   });
+  //   console.log(this.state.socialMedia)
+  // };
 
   render() {
     const { socialMedia } = this.state;
@@ -42,9 +42,9 @@ class App extends Component {
         <div className="all-sections">
           <Section
             name="Personal Information"
-            socialMediaLength={socialMedia.length}
+            // socialMediaLength={socialMedia.length}
             handleInputChange={this.handleInputChange}
-            handleButtonClick={this.handleButtonClick}
+            // handleButtonClick={this.handleButtonClick}
           />
         </div>
         <div className="preview">

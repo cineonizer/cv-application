@@ -24,11 +24,6 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-}
-
-.personal-info {
-  display: flex;
-  align-items: center;
   font-size: small;
 }
 
