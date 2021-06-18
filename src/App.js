@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Section from './components/Section';
+import PersonalSection from './components/PersonalSection';
+import ExperienceSection from './components/ExperienceSection';
 import Resume from './components/Resume';
 import './css/App.css'
 
@@ -13,38 +14,49 @@ class App extends Component {
       location: 'New York, NY',
       phone: '212-555-0179',
       email: 'elliotalderson@protonmail.ch',
-      gitHub: 'cineonizer',
-      linkedIn: 'jamesdkiam',
+      gitHub: 'fsociety',
+      linkedIn: 'fsociety',
+      experiences: [
+        ['title', 'fromdate', 'todate', 'company', 'city', 'description']
+      ],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
+    this.handleDelButtonClick = this.handleDelButtonClick.bind(this);
   }
 
   handleInputChange = async (e, field) => {
+    console.log(e.target.placeholder)
     await this.setState({
       [field]: e.target.value,
     });
   };
 
-  // handleButtonClick = async () => {
-  //   await this.setState({
-  //     socialMedia: this.state.socialMedia.concat(''),
-  //   });
-  //   console.log(this.state.socialMedia)
-  // };
+  handleAddButtonClick = async () => {
+    await this.setState({
+      experiences: [...this.state.experiences, []],
+    });
+  };
+
+  handleDelButtonClick = async (e) => {
+    let arr = [...this.state.experiences];
+    console.log(e)
+  };
 
   render() {
-    const { socialMedia } = this.state;
-
     return (
       <div className="app">
         <div className="all-sections">
-          <Section
+          <PersonalSection
             name="Personal Information"
-            // socialMediaLength={socialMedia.length}
             handleInputChange={this.handleInputChange}
-            // handleButtonClick={this.handleButtonClick}
+          />
+          <ExperienceSection 
+            name="Professional Experience"
+            handleAddButtonClick={this.handleAddButtonClick}
+            handleDelButtonClick={this.handleDelButtonClick}
+            experiences={this.state.experiences}
           />
         </div>
         <div className="preview">
@@ -52,7 +64,7 @@ class App extends Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default App;

@@ -5,3 +5,9 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.all-sections {
+  margin-top: 50px;
+  height: 750px;
+  overflow-y: scroll;
+}

@@ -1,4 +1,4 @@
-.add-button {
+.button {
   display: block;
   width: 150px;
   height: 40px;
@@ -15,9 +15,9 @@
   cursor: pointer;
 }
 
-.add-button:after {
+.button:after {
   position: absolute;
-  content: "+";
+  content: attr(data-sign);
   top: 0;
   left: 0;
   width: 0;
@@ -29,7 +29,7 @@
   transition: width 0.5s, color 0.5s;
 }
 
-.add-button:hover:after {
+.button:hover:after {
   width: 100%;
   color: #fff;
 }

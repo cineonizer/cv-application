@@ -3,9 +3,8 @@
   height: fit-content;
   border: 1px solid transparent;
   background-color: #d1d2d4;
-  box-shadow: 50px red;
   border-radius: 20px;
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .section-title {
@@ -19,4 +18,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.experience-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
 }
