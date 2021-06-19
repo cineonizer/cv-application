@@ -9,7 +9,9 @@ const ExperienceInput = (props) => {
 
   return (
     <div className="experience-section">
-      <TextInput name="Title" />
+      <TextInput
+        name="Title"
+      />
       <TextInput name="Company" />
       <TextInput name="City" />
       <div className="date">
@@ -17,7 +19,7 @@ const ExperienceInput = (props) => {
         <TextInput name="To" />
       </div>
       <TextArea name="Description of responsibilities" />
-      <Button name="Delete" sign="-" delExperience={handleDelButtonClick} id={props.index}/>
+      <Button name="Delete" sign="-" delExperience={() => {handleDelButtonClick(props.value)}}/>
     </div>
   );
 };
@@ -26,12 +28,19 @@ class ExperienceSection extends Component {
   render() {
     const { name, handleAddButtonClick, handleDelButtonClick, experiences } = this.props;
 
+
     return (
       <div className="section">
         <div className="section-title">{name}</div>
         <div className="all-section-inputs">
           {experiences.map((experience, index) => {
-            return <ExperienceInput handleDelButtonClick={handleDelButtonClick} key={index}/>;
+            return (
+              <ExperienceInput
+                handleDelButtonClick={handleDelButtonClick}
+                key={experience.id}
+                value={index}
+              />
+            );
           })}
           <Button name="Add" sign="+" addExperience={handleAddButtonClick} />
         </div>

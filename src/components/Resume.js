@@ -105,6 +105,12 @@ class Resume extends Component {
             return <PersonalInfo info={info} key={index} />;
           })}
         </div>
+        <div className="experience-container">
+          <div className="experience-divider">
+            <div>PROFESSIONAL EXPERIENCE</div>
+            <hr className="line"/>
+          </div>
+        </div>
       </div>
     );
   }

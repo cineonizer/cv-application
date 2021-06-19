@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PersonalSection from './components/PersonalSection';
 import ExperienceSection from './components/ExperienceSection';
 import Resume from './components/Resume';
+import uniqid from 'uniqid';
 import './css/App.css'
 
 class App extends Component {
@@ -16,9 +17,7 @@ class App extends Component {
       email: 'elliotalderson@protonmail.ch',
       gitHub: 'fsociety',
       linkedIn: 'fsociety',
-      experiences: [
-        ['title', 'fromdate', 'todate', 'company', 'city', 'description']
-      ],
+      experiences: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,7 +26,6 @@ class App extends Component {
   }
 
   handleInputChange = async (e, field) => {
-    console.log(e.target.placeholder)
     await this.setState({
       [field]: e.target.value,
     });
@@ -35,13 +33,27 @@ class App extends Component {
 
   handleAddButtonClick = async () => {
     await this.setState({
-      experiences: [...this.state.experiences, []],
+      experiences: [
+        ...this.state.experiences,
+        {
+          id: uniqid(),
+          title: '',
+          company: '',
+          city: '',
+          from: '',
+          to: '',
+          description: '',
+        },
+      ],
     });
   };
 
-  handleDelButtonClick = async (e) => {
-    let arr = [...this.state.experiences];
-    console.log(e)
+  handleDelButtonClick = async (index) => {
+    let updatedExperienceState = [...this.state.experiences];
+    updatedExperienceState.splice(index, 1);
+    await this.setState({
+      experiences: updatedExperienceState,
+    });
   };
 
   render() {

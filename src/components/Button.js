@@ -16,9 +16,9 @@ class Button extends Component {
     });
   };
 
-  onClickEvent = (props) => {
-    if (props.sign === '+') props.addExperience();
-    else props.delExperience();
+  onClickEvent = () => {
+    if (this.props.sign === '+') this.props.addExperience();
+    else this.props.delExperience();
   };
 
   render() {
@@ -30,7 +30,7 @@ class Button extends Component {
           className="button"
           onMouseEnter={this.toggleHover}
           onMouseLeave={this.toggleHover}
-          onClick={() => {this.onClickEvent(this.props)}}
+          onClick={this.onClickEvent}
           data-sign={this.props.sign}
         >
           <span>{btnName}</span>
