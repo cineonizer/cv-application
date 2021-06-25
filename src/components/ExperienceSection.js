@@ -6,19 +6,37 @@ import '../css/Section.css';
 
 const ExperienceInput = (props) => {
   const handleDelButtonClick = props.handleDelButtonClick;
+  const handleInputChange = props.handleInputChange;
+  const value = props.value;
 
   return (
     <div className="experience-section">
       <TextInput
         name="Title"
+        handleInputChange={(e) => handleInputChange(e, 'title', 'experiences', value)}
       />
-      <TextInput name="Company" />
-      <TextInput name="City" />
+      <TextInput
+        name="Company" 
+        handleInputChange={(e) => handleInputChange(e, 'company', 'experiences', value)}
+      />
+      <TextInput
+        name="City"
+        handleInputChange={(e) => handleInputChange(e, 'city', 'experiences', value)}
+      />
       <div className="date">
-        <TextInput name="From" />
-        <TextInput name="To" />
+        <TextInput
+          name="From"
+          handleInputChange={(e) => handleInputChange(e, 'from', 'experiences', value)}
+        />
+        <TextInput
+          name="To"
+          handleInputChange={(e) => handleInputChange(e, 'to', 'experiences', value)}
+        />
       </div>
-      <TextArea name="Description of responsibilities" />
+      <TextArea 
+        name="Description of responsibilities"
+        handleInputChange={(e) => handleInputChange(e, 'description', 'experiences', value)}
+      />
       <Button name="Delete" sign="-" delExperience={() => {handleDelButtonClick(props.value)}}/>
     </div>
   );
@@ -26,7 +44,7 @@ const ExperienceInput = (props) => {
 
 class ExperienceSection extends Component {
   render() {
-    const { name, handleAddButtonClick, handleDelButtonClick, experiences } = this.props;
+    const { name, handleAddButtonClick, handleDelButtonClick, handleInputChange, experiences } = this.props;
 
 
     return (
@@ -37,6 +55,7 @@ class ExperienceSection extends Component {
             return (
               <ExperienceInput
                 handleDelButtonClick={handleDelButtonClick}
+                handleInputChange={handleInputChange}
                 key={experience.id}
                 value={index}
               />

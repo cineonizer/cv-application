@@ -39,7 +39,7 @@
   margin-top: 25px;
 }
 
-.experience-divider {
+.header-divider {
   font-size: 1.25em;
   font-weight: bold;
 }
@@ -47,4 +47,26 @@
 .line {
   border: 2px solid black;
   margin-top: -2px;
+}
+
+.experience {
+  margin-top: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.company {
+  font-style: italic;
+}
+
+.responsibility {
+  margin: 2.5px 0 0 25px;
 }

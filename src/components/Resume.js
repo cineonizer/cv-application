@@ -85,15 +85,37 @@ const PersonalInfo = (props) => {
   }
 };
 
+const ExperienceInfo = (props) => {
+  return (
+    <div>
+      <div className="row">
+        <div className="title">Software Engineer</div>
+        <div className="fromandto">Jul 2014 - Present</div>
+      </div>
+      <div className="row">
+        <div className="company">Kiewit Corporation</div>
+        <div className="city">New York, NY</div>
+      </div>
+      <div className="responsibility">
+        <div className="description">• Hello</div>
+      </div>
+    </div>
+  );
+};
+
 class Resume extends Component {
   render() {
+    // this block of code is for personal info component
     const { firstName, lastName } = this.props.data;
     const stateArr = Object.entries(this.props.data);
+    console.log(this.props.data)
     const personalInfoArr = stateArr.filter((info) => {
       if (info[1] && info[0] !== 'experiences') return true;
       return false;
     });
     const infoLen = personalInfoArr.length;
+
+    // this block of code is for experience info component
 
     return (
       <div className="resume">
@@ -106,9 +128,22 @@ class Resume extends Component {
           })}
         </div>
         <div className="experience-container">
-          <div className="experience-divider">
+          <div className="header-divider">
             <div>PROFESSIONAL EXPERIENCE</div>
             <hr className="line"/>
+          </div>
+          <div className="experience">
+            {/* <div className="row">
+              <div className="title">Software Engineer</div>
+              <div className="fromandto">Jul 2014 - Present</div>
+            </div>
+            <div className="row">
+              <div className="company">Kiewit Corporation</div>
+              <div className="city">New York, NY</div>
+            </div>
+            <div className="responsibility">
+              <div className="description">• Hello</div>
+            </div> */}
           </div>
         </div>
       </div>

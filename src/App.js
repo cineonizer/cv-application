@@ -25,11 +25,20 @@ class App extends Component {
     this.handleDelButtonClick = this.handleDelButtonClick.bind(this);
   }
 
-  handleInputChange = async (e, field) => {
-    await this.setState({
-      [field]: e.target.value,
-    });
+  handleInputChange = async (e, field, isArrState = undefined, index = undefined) => {
+    if (isArrState === 'experiences') {
+      const experiencesArr = [...this.state.experiences]
+      experiencesArr[index][field] = e.target.value
+      await this.setState({
+        experiences: experiencesArr,
+      });
+    } else {
+        await this.setState({
+          [field]: e.target.value,
+        });
+      }
   };
+  
 
   handleAddButtonClick = async () => {
     await this.setState({
@@ -68,6 +77,7 @@ class App extends Component {
             name="Professional Experience"
             handleAddButtonClick={this.handleAddButtonClick}
             handleDelButtonClick={this.handleDelButtonClick}
+            handleInputChange={this.handleInputChange}
             experiences={this.state.experiences}
           />
         </div>
