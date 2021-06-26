@@ -39,7 +39,6 @@ class App extends Component {
       }
   };
   
-
   handleAddButtonClick = async () => {
     await this.setState({
       experiences: [

@@ -86,18 +86,20 @@ const PersonalInfo = (props) => {
 };
 
 const ExperienceInfo = (props) => {
+  const experience = props.experience
+  console.log(experience)
   return (
     <div>
       <div className="row">
-        <div className="title">Software Engineer</div>
-        <div className="fromandto">Jul 2014 - Present</div>
+        <div className="title">{experience.title}</div>
+        <div className="fromandto">{`${experience.from} - ${experience.to}`}</div>
       </div>
       <div className="row">
-        <div className="company">Kiewit Corporation</div>
-        <div className="city">New York, NY</div>
+        <div className="company">{experience.company}</div>
+        <div className="city">{experience.city}</div>
       </div>
       <div className="responsibility">
-        <div className="description">• Hello</div>
+        <div className="description">{experience.description}</div>
       </div>
     </div>
   );
@@ -105,17 +107,18 @@ const ExperienceInfo = (props) => {
 
 class Resume extends Component {
   render() {
-    // this block of code is for personal info component
     const { firstName, lastName } = this.props.data;
     const stateArr = Object.entries(this.props.data);
-    console.log(this.props.data)
+
+    // this block of code is for personal info component
     const personalInfoArr = stateArr.filter((info) => {
-      if (info[1] && info[0] !== 'experiences') return true;
+      if (info[0] !== 'experiences' && info[1]) return true;
       return false;
     });
     const infoLen = personalInfoArr.length;
 
     // this block of code is for experience info component
+    const experiencesArr = this.props.data.experiences;
 
     return (
       <div className="resume">
@@ -133,17 +136,9 @@ class Resume extends Component {
             <hr className="line"/>
           </div>
           <div className="experience">
-            {/* <div className="row">
-              <div className="title">Software Engineer</div>
-              <div className="fromandto">Jul 2014 - Present</div>
-            </div>
-            <div className="row">
-              <div className="company">Kiewit Corporation</div>
-              <div className="city">New York, NY</div>
-            </div>
-            <div className="responsibility">
-              <div className="description">• Hello</div>
-            </div> */}
+            {experiencesArr.map((experience) => {
+              return <ExperienceInfo experience={experience} key={experience.id}/>
+            })}
           </div>
         </div>
       </div>
