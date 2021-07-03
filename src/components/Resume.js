@@ -87,7 +87,6 @@ const PersonalInfo = (props) => {
 
 const ExperienceInfo = (props) => {
   const experience = props.experience
-  console.log(experience)
   return (
     <div>
       <div className="row">
@@ -99,9 +98,10 @@ const ExperienceInfo = (props) => {
         <div className="city">{experience.city}</div>
       </div>
       <div className="responsibility">
-        <div className="description">{experience.description}</div>
+        {experience.description.split('\n').map((descriptionBullet, index) => {
+          return <div className="description" key={index}>• {descriptionBullet}</div>
+        })}</div>
       </div>
-    </div>
   );
 };
 

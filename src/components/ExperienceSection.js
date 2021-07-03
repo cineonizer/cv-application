@@ -44,8 +44,13 @@ const ExperienceInput = (props) => {
 
 class ExperienceSection extends Component {
   render() {
-    const { name, handleAddButtonClick, handleDelButtonClick, handleInputChange, experiences } = this.props;
-
+    const {
+      name,
+      handleAddButtonClick,
+      handleDelButtonClick,
+      handleInputChange,
+      experiences,
+    } = this.props;
 
     return (
       <div className="section">

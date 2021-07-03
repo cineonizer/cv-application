@@ -29,18 +29,18 @@ class App extends Component {
     if (isArrState === 'experiences') {
       const experiencesArr = [...this.state.experiences]
       experiencesArr[index][field] = e.target.value
-      await this.setState({
+      this.setState({
         experiences: experiencesArr,
       });
     } else {
-        await this.setState({
+        this.setState({
           [field]: e.target.value,
         });
       }
   };
   
-  handleAddButtonClick = async () => {
-    await this.setState({
+  handleAddButtonClick = () => {
+    this.setState({
       experiences: [
         ...this.state.experiences,
         {
@@ -56,10 +56,10 @@ class App extends Component {
     });
   };
 
-  handleDelButtonClick = async (index) => {
+  handleDelButtonClick = (index) => {
     let updatedExperienceState = [...this.state.experiences];
     updatedExperienceState.splice(index, 1);
-    await this.setState({
+    this.setState({
       experiences: updatedExperienceState,
     });
   };
