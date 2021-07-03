@@ -17,8 +17,8 @@ class Button extends Component {
   };
 
   onClickEvent = () => {
-    if (this.props.sign === '+') this.props.addExperience();
-    else this.props.delExperience();
+    if (this.props.sign === '+') this.props.addSection();
+    else this.props.delSection();
   };
 
   render() {

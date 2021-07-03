@@ -37,7 +37,7 @@ const ExperienceInput = (props) => {
         name="Description of responsibilities"
         handleInputChange={(e) => handleInputChange(e, 'description', 'experiences', value)}
       />
-      <Button name="Delete" sign="-" delExperience={() => {handleDelButtonClick(props.value)}}/>
+      <Button name="Delete" sign="-" delSection={() => {handleDelButtonClick(props.value, 'experience')}}/>
     </div>
   );
 };
@@ -66,7 +66,7 @@ class ExperienceSection extends Component {
               />
             );
           })}
-          <Button name="Add" sign="+" addExperience={handleAddButtonClick} />
+          <Button name="Add" sign="+" addSection={() => handleAddButtonClick('experience')} />
         </div>
       </div>
     );

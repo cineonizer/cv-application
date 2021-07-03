@@ -141,6 +141,15 @@ class Resume extends Component {
             })}
           </div>
         </div>
+        <div className="education-container">
+          <div className="header-divider">
+            <div>EDUCATION</div>
+            <hr className="line" />
+          </div>
+          <div className="education">
+            
+          </div>
+        </div>
       </div>
     );
   }

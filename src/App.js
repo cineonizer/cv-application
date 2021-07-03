@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PersonalSection from './components/PersonalSection';
 import ExperienceSection from './components/ExperienceSection';
+import EducationSection from './components/EducationSection';
 import Resume from './components/Resume';
 import uniqid from 'uniqid';
 import './css/App.css'
@@ -17,7 +18,19 @@ class App extends Component {
       email: 'elliotalderson@protonmail.ch',
       gitHub: 'fsociety',
       linkedIn: 'fsociety',
-      experiences: [],
+      experiences: [
+        {
+          id: uniqid(),
+          title: 'Senior Network Engineer',
+          company: 'Allsafe Cybersecurity',
+          city: 'New York, NY',
+          from: '2012',
+          to: '2015',
+          description: 
+            'Collaborating with network architects to design and implement functional company networks. \n Installing and configuring networking hardware. \n Creating and implementing network security measures. \n Dealing with escalated network support issues. \n Reporting to the Chief Technology Officer. \n Drawing up network status reports.',
+        },
+      ],
+      education: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,6 +45,12 @@ class App extends Component {
       this.setState({
         experiences: experiencesArr,
       });
+    } else if (isArrState === 'education') {
+      const educationArr = [...this.state.education]
+      educationArr[index][field] = e.target.value
+      this.setState({
+        education: educationArr,
+      });
     } else {
         this.setState({
           [field]: e.target.value,
@@ -39,29 +58,55 @@ class App extends Component {
       }
   };
   
-  handleAddButtonClick = () => {
-    this.setState({
-      experiences: [
-        ...this.state.experiences,
-        {
-          id: uniqid(),
-          title: '',
-          company: '',
-          city: '',
-          from: '',
-          to: '',
-          description: '',
-        },
-      ],
-    });
+  handleAddButtonClick = async (sectionName = undefined) => {
+    if (sectionName === 'experience') {
+      this.setState({
+        experiences: [
+          ...this.state.experiences,
+          {
+            id: uniqid(),
+            title: '',
+            company: '',
+            city: '',
+            from: '',
+            to: '',
+            description: '',
+          },
+        ],
+      });
+    } else if (sectionName === 'education') {
+      await this.setState({
+        education: [
+          ...this.state.education,
+          {
+            id: uniqid(),
+            degree: '',
+            school: '',
+            city: '',
+            from: '',
+            to: '',
+            description: '',
+          },
+        ],
+      });
+      console.log(this.state.education)
+    }
   };
 
-  handleDelButtonClick = (index) => {
-    let updatedExperienceState = [...this.state.experiences];
-    updatedExperienceState.splice(index, 1);
-    this.setState({
-      experiences: updatedExperienceState,
-    });
+  handleDelButtonClick = (index, sectionName = undefined) => {
+    if (sectionName === 'experience') {
+      const updatedExperienceState = [...this.state.experiences];
+      updatedExperienceState.splice(index, 1);
+      this.setState({
+        experiences: updatedExperienceState,
+      });
+    } else if (sectionName === 'education') {
+      const updatedEducationState = [...this.state.education];
+      updatedEducationState.splice(index, 1);
+      this.setState({
+        education: updatedEducationState,
+      });
+    }
   };
 
   render() {
@@ -78,6 +123,13 @@ class App extends Component {
             handleDelButtonClick={this.handleDelButtonClick}
             handleInputChange={this.handleInputChange}
             experiences={this.state.experiences}
+          />
+          <EducationSection
+            name="Education"
+            handleAddButtonClick={this.handleAddButtonClick}
+            handleDelButtonClick={this.handleDelButtonClick}
+            handleInputChange={this.handleInputChange}
+            education={this.state.education}
           />
         </div>
         <div className="preview">

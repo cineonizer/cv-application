@@ -20,7 +20,8 @@
   justify-content: center;
 }
 
-.experience-section {
+.experience-section,
+.education-section {
   display: flex;
   flex-direction: column;
   align-items: center;
