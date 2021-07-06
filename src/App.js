@@ -30,7 +30,17 @@ class App extends Component {
             'Collaborating with network architects to design and implement functional company networks. \n Installing and configuring networking hardware. \n Creating and implementing network security measures. \n Dealing with escalated network support issues. \n Reporting to the Chief Technology Officer. \n Drawing up network status reports.',
         },
       ],
-      education: [],
+      education: [
+        {
+          id: uniqid(),
+          degree: 'Bachelor of Science in Computer Science',
+          school: 'New York University',
+          city: 'New York, NY',
+          from: '2008',
+          to: '2012',
+          description: 'GPA: 4.00',
+        }
+      ],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);

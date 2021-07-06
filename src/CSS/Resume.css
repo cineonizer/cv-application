@@ -49,7 +49,8 @@
   margin-top: -2px;
 }
 
-.experience {
+.experience,
+.education {
   margin-top: 15px;
 }
 
@@ -59,11 +60,13 @@
   justify-content: space-between;
 }
 
-.title {
+.title,
+.degree {
   font-weight: bold;
 }
 
-.company {
+.company,
+.school {
   font-style: italic;
 }
 

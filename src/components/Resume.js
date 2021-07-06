@@ -105,6 +105,26 @@ const ExperienceInfo = (props) => {
   );
 };
 
+const EducationInfo = (props) => {
+  const education = props.education
+  return (
+    <div>
+      <div className="row">
+        <div className="degree">{education.degree}</div>
+        <div className="fromandto">{`${education.from} - ${education.to}`}</div>
+      </div>
+      <div className="row">
+        <div className="school">{education.school}</div>
+        <div className="city">{education.city}</div>
+      </div>
+      <div className="responsibility">
+        {education.description.split('\n').map((descriptionBullet, index) => {
+          return <div className="description" key={index}>• {descriptionBullet}</div>
+        })}</div>
+      </div>
+  );
+};
+
 class Resume extends Component {
   render() {
     const { firstName, lastName } = this.props.data;
@@ -119,6 +139,9 @@ class Resume extends Component {
 
     // this block of code is for experience info component
     const experiencesArr = this.props.data.experiences;
+
+    // this block of code is for education info component
+    const educationsArr = this.props.data.education;
 
     return (
       <div className="resume">
@@ -147,7 +170,9 @@ class Resume extends Component {
             <hr className="line" />
           </div>
           <div className="education">
-            
+            {educationsArr.map((education) => {
+              return <EducationInfo education={education} key={education.id}/>
+            })}
           </div>
         </div>
       </div>
