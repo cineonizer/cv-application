@@ -100,8 +100,9 @@ const ExperienceInfo = (props) => {
       <div className="responsibility">
         {experience.description.split('\n').map((descriptionBullet, index) => {
           return <div className="description" key={index}>• {descriptionBullet}</div>
-        })}</div>
+        })}
       </div>
+    </div>
   );
 };
 
@@ -120,8 +121,21 @@ const EducationInfo = (props) => {
       <div className="responsibility">
         {education.description.split('\n').map((descriptionBullet, index) => {
           return <div className="description" key={index}>• {descriptionBullet}</div>
-        })}</div>
+        })}
       </div>
+    </div>
+  );
+};
+
+const SkillsInfo = (props) => {
+  const skill = props.skill
+  return (
+    <div>
+      <div className="row-skill">
+        <div className="skill-name">{skill.skill}</div>
+        <div className="skill-description">{skill.description}</div>
+      </div>
+    </div>
   );
 };
 
@@ -142,6 +156,9 @@ class Resume extends Component {
 
     // this block of code is for education info component
     const educationsArr = this.props.data.education;
+
+    // this block of code is for skills info component
+    const skillsArr = this.props.data.skills;
 
     return (
       <div className="resume">
@@ -172,6 +189,17 @@ class Resume extends Component {
           <div className="education">
             {educationsArr.map((education) => {
               return <EducationInfo education={education} key={education.id}/>
+            })}
+          </div>
+        </div>
+        <div className="skill-container">
+          <div className="header-divider">
+            <div>SKILLS</div>
+            <hr className="line" />
+          </div>
+          <div className="skill">
+            {skillsArr.map((skill) => {
+              return <SkillsInfo skill={skill} key={skill.id} />
             })}
           </div>
         </div>

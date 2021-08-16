@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PersonalSection from './components/PersonalSection';
 import ExperienceSection from './components/ExperienceSection';
 import EducationSection from './components/EducationSection';
+import SkillSection from './components/SkillSection';
 import Resume from './components/Resume';
 import uniqid from 'uniqid';
 import './css/App.css'
@@ -41,6 +42,13 @@ class App extends Component {
           description: 'GPA: 4.00',
         }
       ],
+      skills: [
+        {
+          id: uniqid(),
+          skill: 'Python',
+          description: 'Intermediate Skill',
+        },
+      ],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,16 +58,22 @@ class App extends Component {
 
   handleInputChange = async (e, field, isArrState = undefined, index = undefined) => {
     if (isArrState === 'experiences') {
-      const experiencesArr = [...this.state.experiences]
-      experiencesArr[index][field] = e.target.value
+      const experiencesArr = [...this.state.experiences];
+      experiencesArr[index][field] = e.target.value;
       this.setState({
         experiences: experiencesArr,
       });
     } else if (isArrState === 'education') {
-      const educationArr = [...this.state.education]
-      educationArr[index][field] = e.target.value
+      const educationArr = [...this.state.education];
+      educationArr[index][field] = e.target.value;
       this.setState({
         education: educationArr,
+      });
+    } else if (isArrState === 'skills') {
+      const skillsArr = [...this.state.skills];
+      skillsArr[index][field] = e.target.value;
+      this.setState({
+        skills: skillsArr,
       });
     } else {
         this.setState({
@@ -68,7 +82,7 @@ class App extends Component {
       }
   };
   
-  handleAddButtonClick = async (sectionName = undefined) => {
+  handleAddButtonClick = (sectionName = undefined) => {
     if (sectionName === 'experience') {
       this.setState({
         experiences: [
@@ -85,7 +99,7 @@ class App extends Component {
         ],
       });
     } else if (sectionName === 'education') {
-      await this.setState({
+      this.setState({
         education: [
           ...this.state.education,
           {
@@ -99,7 +113,17 @@ class App extends Component {
           },
         ],
       });
-      console.log(this.state.education)
+    } else if (sectionName === 'skill') {
+      this.setState({
+        skills: [
+          ...this.state.skills,
+          {
+            id: uniqid(),
+            skill: '',
+            description: '',
+          },
+        ],
+      });
     }
   };
 
@@ -115,6 +139,12 @@ class App extends Component {
       updatedEducationState.splice(index, 1);
       this.setState({
         education: updatedEducationState,
+      });
+    } else if (sectionName === 'skill') {
+      const updatedSkillsState = [...this.state.skills];
+      updatedSkillsState.splice(index, 1);
+      this.setState({
+        skills: updatedSkillsState,
       });
     }
   };
@@ -140,6 +170,13 @@ class App extends Component {
             handleDelButtonClick={this.handleDelButtonClick}
             handleInputChange={this.handleInputChange}
             education={this.state.education}
+          />
+          <SkillSection
+            name="Skills"
+            handleAddButtonClick={this.handleAddButtonClick}
+            handleDelButtonClick={this.handleDelButtonClick}
+            handleInputChange={this.handleInputChange}
+            skills={this.state.skills}
           />
         </div>
         <div className="preview">

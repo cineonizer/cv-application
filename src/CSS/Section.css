@@ -21,7 +21,8 @@
 }
 
 .experience-section,
-.education-section {
+.education-section,
+.skill-section {
   display: flex;
   flex-direction: column;
   align-items: center;
