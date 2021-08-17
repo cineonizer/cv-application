@@ -88,7 +88,7 @@ const PersonalInfo = (props) => {
 const ExperienceInfo = (props) => {
   const experience = props.experience
   return (
-    <div>
+    <div className="entry">
       <div className="row">
         <div className="title">{experience.title}</div>
         <div className="fromandto">{`${experience.from} - ${experience.to}`}</div>
@@ -109,7 +109,7 @@ const ExperienceInfo = (props) => {
 const EducationInfo = (props) => {
   const education = props.education
   return (
-    <div>
+    <div className="entry">
       <div className="row">
         <div className="degree">{education.degree}</div>
         <div className="fromandto">{`${education.from} - ${education.to}`}</div>

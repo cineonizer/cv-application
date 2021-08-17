@@ -18,6 +18,8 @@ class Button extends Component {
 
   onClickEvent = () => {
     if (this.props.sign === '+') this.props.addSection();
+    else if (this.props.sign === 'Sample') this.props.loadSample();
+    else if (this.props.sign === 'Resume') this.props.resetInputs();
     else this.props.delSection();
   };
 

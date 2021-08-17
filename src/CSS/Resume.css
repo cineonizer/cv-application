@@ -83,6 +83,10 @@
 }
 
 .skill-name {
-  width: 250px;
+  width: 275px;
   word-wrap: break-word;
+}
+
+.entry {
+  margin-bottom: 15px;
 }
