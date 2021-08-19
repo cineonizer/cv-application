@@ -12,14 +12,23 @@ Click [here](https://cineonizer.github.io/cv-application/) for a live preview of
 
 ## Goal
 
-Construct a CV application in React (not vanilla JavaScript) that will generate a résumé from a templatebased on the user provided details and descriptions.
+Construct a CV application in React framework, in lieu of plain JavaScript, that will generate a résumé from the user provided details and descriptions.
 
 ## Built With
 
 * HTML
 * CSS
-* React
+* React.js
 
 ## Learning Outcomes
 
-* Learned class component React.
+* Introduced to the concept of React framework and React components.
+* Familiarized myself on how to set up a React app.
+* Learned JSX in relation to JavaScript and HTML elements.
+* Learned to use class components as opposed to functional components.
+* Learned about props and passing props to components.
+* Applied destructing assignment syntax to unpack properties from objects.
+* Learned the purpose and usage of states in React components.
+* Understood to never mutate states directly instead use setState() method.
+* Understood and grasped the idea of handling input fields and buttons in React.
+* Applied [conditional rendering]https://reactjs.org/docs/conditional-rendering.html() to create elements based on the current state.
