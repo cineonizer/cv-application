@@ -31,4 +31,4 @@ Construct a CV application in React framework, in lieu of plain JavaScript, that
 * Learned the purpose and usage of states in React components.
 * Understood to never mutate states directly instead use setState() method.
 * Understood and grasped the idea of handling input fields and buttons in React.
-* Applied [conditional rendering]https://reactjs.org/docs/conditional-rendering.html() to create elements based on the current state.
+* Applied [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to create elements based on the current state.
