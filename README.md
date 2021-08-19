@@ -16,7 +16,6 @@ Construct a CV application in React (not vanilla JavaScript) that will generate 
 
 ## Built With
 
-* HTML
 * CSS
 * React
 
