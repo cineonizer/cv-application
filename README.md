@@ -22,4 +22,4 @@ Construct a CV application in React (not vanilla JavaScript) that will generate 
 
 ## Learning Outcomes
 
-* 
+* Learned class component React.
