@@ -7,10 +7,18 @@ const ButtonSection = (props) => {
 
   return (
     <div className="buttons">
-      <Button name="Load" sign="Sample" loadSample={() => handleLoadButtonClick()} />
-      <Button name="Reset" sign="Resume" resetInputs={() => handleResetButtonClick()} />
+      <Button
+        name="Load"
+        sign="Sample"
+        loadSample={() => handleLoadButtonClick()}
+      />
+      <Button
+        name="Reset"
+        sign="Resume"
+        resetInputs={() => handleResetButtonClick()}
+      />
     </div>
   );
-}
+};
 
 export default ButtonSection;
