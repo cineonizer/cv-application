@@ -35,9 +35,7 @@ const ExperienceInput = (props) => {
       </div>
       <TextArea
         name="Description of responsibilities"
-        handleInputChange={(e) =>
-          handleInputChange(e, value, 'description')
-        }
+        handleInputChange={(e) => handleInputChange(e, value, 'description')}
       />
       <Button
         name="Delete"

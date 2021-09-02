@@ -18,7 +18,13 @@ const SkillsInput = (props) => {
         name="Description"
         handleInputChange={(e) => handleInputChange(e, value, 'description')}
       />
-      <Button name="Delete" sign="-" delSection={() => {handleDelButtonClick(props.value, 'skill')}}/>
+      <Button
+        name="Delete"
+        sign="-"
+        delSection={() => {
+          handleDelButtonClick(props.value, 'skill');
+        }}
+      />
     </div>
   );
 };

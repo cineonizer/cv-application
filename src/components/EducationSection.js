@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 import Button from './Button';
-import '../css/Section.css'
+import '../css/Section.css';
 
 const EducationInput = (props) => {
   const handleDelButtonClick = props.handleDelButtonClick;
@@ -16,7 +16,7 @@ const EducationInput = (props) => {
         handleInputChange={(e) => handleInputChange(e, value, 'degree')}
       />
       <TextInput
-        name="School" 
+        name="School"
         handleInputChange={(e) => handleInputChange(e, value, 'school')}
       />
       <TextInput
@@ -33,11 +33,17 @@ const EducationInput = (props) => {
           handleInputChange={(e) => handleInputChange(e, value, 'to')}
         />
       </div>
-      <TextArea 
+      <TextArea
         name="Description of Education"
         handleInputChange={(e) => handleInputChange(e, value, 'description')}
       />
-      <Button name="Delete" sign="-" delSection={() => {handleDelButtonClick(props.value, 'education')}}/>
+      <Button
+        name="Delete"
+        sign="-"
+        delSection={() => {
+          handleDelButtonClick(props.value, 'education');
+        }}
+      />
     </div>
   );
 };
@@ -65,10 +71,10 @@ const EducationSection = (props) => {
             />
           );
         })}
-        <Button name="Add" sign="+" addSection={() => handleAddButtonClick()}/> 
+        <Button name="Add" sign="+" addSection={() => handleAddButtonClick()} />
       </div>
     </div>
   );
-}
+};
 
 export default EducationSection;

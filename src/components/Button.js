@@ -13,7 +13,7 @@ const Button = (props) => {
     else if (props.sign === 'Sample') props.loadSample();
     else if (props.sign === 'Resume') props.resetInputs();
     else props.delSection();
-  }
+  };
 
   const btnName = isHovered ? '' : props.name;
 
