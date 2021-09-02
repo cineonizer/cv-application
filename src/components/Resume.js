@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/Resume.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -86,7 +86,7 @@ const PersonalInfo = (props) => {
 };
 
 const ExperienceInfo = (props) => {
-  const experience = props.experience
+  const experience = props.experience;
   return (
     <div className="entry">
       <div className="row">
@@ -99,7 +99,11 @@ const ExperienceInfo = (props) => {
       </div>
       <div className="responsibility">
         {experience.description.split('\n').map((descriptionBullet, index) => {
-          return <div className="description" key={index}>• {descriptionBullet}</div>
+          return (
+            <div className="description" key={index}>
+              • {descriptionBullet}
+            </div>
+          );
         })}
       </div>
     </div>
@@ -107,7 +111,7 @@ const ExperienceInfo = (props) => {
 };
 
 const EducationInfo = (props) => {
-  const education = props.education
+  const education = props.education;
   return (
     <div className="entry">
       <div className="row">
@@ -120,7 +124,11 @@ const EducationInfo = (props) => {
       </div>
       <div className="responsibility">
         {education.description.split('\n').map((descriptionBullet, index) => {
-          return <div className="description" key={index}>• {descriptionBullet}</div>
+          return (
+            <div className="description" key={index}>
+              • {descriptionBullet}
+            </div>
+          );
         })}
       </div>
     </div>
@@ -128,7 +136,7 @@ const EducationInfo = (props) => {
 };
 
 const SkillsInfo = (props) => {
-  const skill = props.skill
+  const skill = props.skill;
   return (
     <div>
       <div className="row-skill">
@@ -139,73 +147,73 @@ const SkillsInfo = (props) => {
   );
 };
 
-class Resume extends Component {
-  render() {
-    const { firstName, lastName } = this.props.data;
-    const stateArr = Object.entries(this.props.data);
+const Resume = (props) => {
+  const { firstName, lastName } = props.data;
+  // converts object into an iterable array
+  const stateArr = Object.entries(props.data);
 
-    // this block of code is for personal info component
-    const personalInfoArr = stateArr.filter((info) => {
-      if (info[0] !== 'experiences' && info[1]) return true;
-      return false;
-    });
-    const infoLen = personalInfoArr.length;
+  // this block of code is for personal info component
+  const personalInfoArr = stateArr.filter((info) => {
+    if (info[0] !== 'experiences' && info[1]) return true;
+    return false;
+  });
+  const infoLen = personalInfoArr.length;
 
-    // this block of code is for experience info component
-    const experiencesArr = this.props.data.experiences;
+  // this block of code is for experience info component
+  const experiencesArr = props.data.experiences;
+  // this block of code is for education info component
+  const educationsArr = props.data.education;
 
-    // this block of code is for education info component
-    const educationsArr = this.props.data.education;
+  // this block of code is for skills info component
+  const skillsArr = props.data.skills;
 
-    // this block of code is for skills info component
-    const skillsArr = this.props.data.skills;
-
-    return (
-      <div className="resume">
-        <div className="name">{`${firstName} ${lastName}`}</div>
-        <div className="personal-info-container">
-          {personalInfoArr.map(([key, value], index) => {
-            const info = { [key]: value, isLast: false };
-            if (infoLen === index + 1) info.isLast = true;
-            return <PersonalInfo info={info} key={index} />;
+  return (
+    <div className="resume">
+      <div className="name">{`${firstName} ${lastName}`}</div>
+      <div className="personal-info-container">
+        {personalInfoArr.map(([key, value], index) => {
+          const info = { [key]: value, isLast: false };
+          if (infoLen === index + 1) info.isLast = true;
+          return <PersonalInfo info={info} key={index} />;
+        })}
+      </div>
+      <div className="experience-container">
+        <div className="header-divider">
+          <div>PROFESSIONAL EXPERIENCE</div>
+          <hr className="line" />
+        </div>
+        <div className="experience">
+          {experiencesArr.map((experience) => {
+            return (
+              <ExperienceInfo experience={experience} key={experience.id} />
+            );
           })}
         </div>
-        <div className="experience-container">
-          <div className="header-divider">
-            <div>PROFESSIONAL EXPERIENCE</div>
-            <hr className="line"/>
-          </div>
-          <div className="experience">
-            {experiencesArr.map((experience) => {
-              return <ExperienceInfo experience={experience} key={experience.id}/>
-            })}
-          </div>
+      </div>
+      <div className="education-container">
+        <div className="header-divider">
+          <div>EDUCATION</div>
+          <hr className="line" />
         </div>
-        <div className="education-container">
-          <div className="header-divider">
-            <div>EDUCATION</div>
-            <hr className="line" />
-          </div>
-          <div className="education">
-            {educationsArr.map((education) => {
-              return <EducationInfo education={education} key={education.id}/>
-            })}
-          </div>
-        </div>
-        <div className="skill-container">
-          <div className="header-divider">
-            <div>SKILLS</div>
-            <hr className="line" />
-          </div>
-          <div className="skill">
-            {skillsArr.map((skill) => {
-              return <SkillsInfo skill={skill} key={skill.id} />
-            })}
-          </div>
+        <div className="education">
+          {educationsArr.map((education) => {
+            return <EducationInfo education={education} key={education.id} />;
+          })}
         </div>
       </div>
-    );
-  }
-}
+      <div className="skill-container">
+        <div className="header-divider">
+          <div>SKILLS</div>
+          <hr className="line" />
+        </div>
+        <div className="skill">
+          {skillsArr.map((skill) => {
+            return <SkillsInfo skill={skill} key={skill.id} />;
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Resume;

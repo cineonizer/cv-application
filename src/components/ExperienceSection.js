@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 import Button from './Button';
@@ -13,64 +13,70 @@ const ExperienceInput = (props) => {
     <div className="experience-section">
       <TextInput
         name="Title"
-        handleInputChange={(e) => handleInputChange(e, 'title', 'experiences', value)}
+        handleInputChange={(e) => handleInputChange(e, value, 'title')}
       />
       <TextInput
-        name="Company" 
-        handleInputChange={(e) => handleInputChange(e, 'company', 'experiences', value)}
+        name="Company"
+        handleInputChange={(e) => handleInputChange(e, value, 'company')}
       />
       <TextInput
         name="City"
-        handleInputChange={(e) => handleInputChange(e, 'city', 'experiences', value)}
+        handleInputChange={(e) => handleInputChange(e, value, 'city')}
       />
       <div className="date">
         <TextInput
           name="From"
-          handleInputChange={(e) => handleInputChange(e, 'from', 'experiences', value)}
+          handleInputChange={(e) => handleInputChange(e, value, 'from')}
         />
         <TextInput
           name="To"
-          handleInputChange={(e) => handleInputChange(e, 'to', 'experiences', value)}
+          handleInputChange={(e) => handleInputChange(e, value, 'to')}
         />
       </div>
-      <TextArea 
+      <TextArea
         name="Description of responsibilities"
-        handleInputChange={(e) => handleInputChange(e, 'description', 'experiences', value)}
+        handleInputChange={(e) =>
+          handleInputChange(e, value, 'description')
+        }
       />
-      <Button name="Delete" sign="-" delSection={() => {handleDelButtonClick(props.value, 'experience')}}/>
+      <Button
+        name="Delete"
+        sign="-"
+        delSection={() => {
+          handleDelButtonClick(props.value, 'experience');
+        }}
+      />
     </div>
   );
 };
 
-class ExperienceSection extends Component {
-  render() {
-    const {
-      name,
-      handleAddButtonClick,
-      handleDelButtonClick,
-      handleInputChange,
-      experiences,
-    } = this.props;
+const ExperienceSection = (props) => {
+  const {
+    name,
+    handleAddButtonClick,
+    handleDelButtonClick,
+    handleInputChange,
+    experiences,
+  } = props;
 
-    return (
-      <div className="section">
-        <div className="section-title">{name}</div>
-        <div className="all-section-inputs">
-          {experiences.map((experience, index) => {
-            return (
-              <ExperienceInput
-                handleDelButtonClick={handleDelButtonClick}
-                handleInputChange={handleInputChange}
-                key={experience.id}
-                value={index}
-              />
-            );
-          })}
-          <Button name="Add" sign="+" addSection={() => handleAddButtonClick('experience')} />
-        </div>
+  return (
+    <div className="section">
+      <div className="section-title">{name}</div>
+      <div className="all-section-inputs">
+        {experiences.map((experience, index) => {
+          return (
+            <ExperienceInput
+              handleDelButtonClick={handleDelButtonClick}
+              handleInputChange={handleInputChange}
+              key={experience.id}
+              value={index}
+            />
+          );
+        })}
+        <Button name="Add" sign="+" addSection={() => handleAddButtonClick()} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default ExperienceSection;

@@ -1,45 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../css/Button.css';
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
+const Button = (props) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-    this.state = {
-      isHovered: false,
-    };
-  }
-
-  toggleHover = () => {
-    this.setState({
-      isHovered: !this.state.isHovered,
-    });
+  const toggleHover = () => {
+    setIsHovered(!isHovered);
   };
 
-  onClickEvent = () => {
-    if (this.props.sign === '+') this.props.addSection();
-    else if (this.props.sign === 'Sample') this.props.loadSample();
-    else if (this.props.sign === 'Resume') this.props.resetInputs();
-    else this.props.delSection();
-  };
-
-  render() {
-    const btnName = this.state.isHovered ? '' : this.props.name;
-
-    return (
-      <div>
-        <button
-          className="button"
-          onMouseEnter={this.toggleHover}
-          onMouseLeave={this.toggleHover}
-          onClick={this.onClickEvent}
-          data-sign={this.props.sign}
-        >
-          <span>{btnName}</span>
-        </button>
-      </div>
-    );
+  const onClickEvent = () => {
+    if (props.sign === '+') props.addSection();
+    else if (props.sign === 'Sample') props.loadSample();
+    else if (props.sign === 'Resume') props.resetInputs();
+    else props.delSection();
   }
-}
+
+  const btnName = isHovered ? '' : props.name;
+
+  return (
+    <div>
+      <button
+        className="button"
+        onMouseEnter={toggleHover}
+        onMouseLeave={toggleHover}
+        onClick={onClickEvent}
+        data-sign={props.sign}
+      >
+        <span>{btnName}</span>
+      </button>
+    </div>
+  );
+};
 
 export default Button;

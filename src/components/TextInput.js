@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/TextInput.css';
 
-class TextInput extends Component {
-  render() {
-    const { name, handleInputChange } = this.props;
+const TextInput = (props) => {
+  const { name, handleInputChange } = props;
 
-    return (
-      <div className="input-container">
-        <input
-          className="text-input"
-          type="text"
-          placeholder={name}
-          onChange={handleInputChange}
-        />
-        <span className="text-line"></span>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="input-container">
+      <input
+        className="text-input"
+        type="text"
+        placeholder={name}
+        onChange={handleInputChange}
+      />
+      <span className="text-line"></span>
+    </div>
+  );
+};
 
 export default TextInput;

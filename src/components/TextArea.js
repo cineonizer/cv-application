@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/TextArea.css';
 
-class TextArea extends Component {
-  render() {
-    const { name, handleInputChange } = this.props;
+const TextArea = (props) => {
+  const { name, handleInputChange } = props;
 
-    return (
-      <div className="textarea-container">
-        <textarea
-          className="textarea"
-          placeholder={name}
-          onChange={handleInputChange}
-        />
-        <span className="textarea-line"></span>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="textarea-container">
+      <textarea
+        className="textarea"
+        placeholder={name}
+        onChange={handleInputChange}
+      />
+      <span className="textarea-line"></span>
+    </div>
+  );
+};
 
 export default TextArea;

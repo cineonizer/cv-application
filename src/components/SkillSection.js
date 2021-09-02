@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TextInput from './TextInput';
 import Button from '../components/Button';
 import '../css/Section.css';
@@ -12,46 +12,44 @@ const SkillsInput = (props) => {
     <div className="skill-section">
       <TextInput
         name="Skill"
-        handleInputChange={(e) => handleInputChange(e, 'skill', 'skills', value)}
+        handleInputChange={(e) => handleInputChange(e, value, 'skill')}
       />
       <TextInput
         name="Description"
-        handleInputChange={(e) => handleInputChange(e, 'description', 'skills', value)}
+        handleInputChange={(e) => handleInputChange(e, value, 'description')}
       />
       <Button name="Delete" sign="-" delSection={() => {handleDelButtonClick(props.value, 'skill')}}/>
     </div>
   );
 };
 
-class SkillSection extends Component {
-  render() {
-    const {
-      name,
-      skills,
-      handleAddButtonClick,
-      handleDelButtonClick,
-      handleInputChange,
-    } = this.props;
+const SkillSection = (props) => {
+  const {
+    name,
+    skills,
+    handleAddButtonClick,
+    handleDelButtonClick,
+    handleInputChange,
+  } = props;
 
-    return (
-      <div className="section">
-        <div className="section-title">{name}</div>
-        <div className="all-section-inputs">
-          {skills.map((skill, index) => {
-            return (
-              <SkillsInput
-                handleDelButtonClick={handleDelButtonClick}
-                handleInputChange={handleInputChange}
-                key={skill.id}
-                value={index}
-              />
-            );
-          })}
-          <Button name="Add" sign="+" addSection={() => handleAddButtonClick('skill')} />
-        </div>
+  return (
+    <div className="section">
+      <div className="section-title">{name}</div>
+      <div className="all-section-inputs">
+        {skills.map((skill, index) => {
+          return (
+            <SkillsInput
+              handleDelButtonClick={handleDelButtonClick}
+              handleInputChange={handleInputChange}
+              key={skill.id}
+              value={index}
+            />
+          );
+        })}
+        <Button name="Add" sign="+" addSection={() => handleAddButtonClick()} />
       </div>
-    );
-  };
-}
+    </div>
+  );
+};
 
 export default SkillSection;
